@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="car.jpg" />
+    <None Remove="mainPage.jpg" />
+    <None Remove="piggybank.jpg" />
+    <None Remove="savingPiggybank.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="car.jpg" />
+    <Resource Include="mainPage.jpg" />
+    <Resource Include="piggybank.jpg" />
+    <Resource Include="savingPiggybank.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,149 @@
+﻿<Window x:Class="PersonalBudgetPlanner_WPF.Summary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalBudgetPlanner_WPF"
+        mc:Ignorable="d"
+        Title="Summary" Height="450" Width="800">
+    <!--Bibliography and References:
+    [1] Youtube.com. 2022. [online] Available at: <https://www.youtube.com/watch?v=gSfMNjWNoX0&list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8> [Accessed 30 June 2022].
+    
+    [2] Youtube.com. 2022. [online] Available at: <https://www.youtube.com/watch?v=-zM486rVopk&list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8&index=2> [Accessed 30 June 2022].
+    -->
+    <!-- window properties-->
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF72C569" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <!-- Row definitions-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!-- col definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--heading-->
+        <TextBlock Text="SUMMARY" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontFamily="Times New Roman" FontSize="48" Foreground="White"
+                   Margin="250,0,0,0"/>
+        <!--Expense heading-->
+        <TextBlock Text="Expenses:" Grid.Row="2" Grid.Column="1"
+                   Width="100" Height="30"
+                   Margin="100,20,0,0" Foreground="White" FontFamily="Times New Roman" FontSize="16">
+            
+        </TextBlock>
+        <!--Data grid definition-->
+        <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                  x:Name="dataGridSummmary" 
+                  Height="200" Width="200"
+                  Margin="0,0,0,0">
+            
+        </DataGrid>
+        <!--stack panel for message heading and click me button that displays messages-->
+        <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="2" Grid.Column="4">
+            <TextBlock Text="Messages:" Grid.Row="2" Grid.Column="1"
+                   Width="100" Height="30"
+                   Margin="0,20,0,0" Foreground="White" FontFamily="Times New Roman" FontSize="16">
+
+            </TextBlock>
+            <Button x:Name="btnMessage" Content="Click Me!"
+                Width="100" Height="30"
+                Margin="0,0,0,0" Foreground="White" FontFamily="Times New Roman" FontSize="16" Click="btnMessage_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <!--messages stack-->
+        <StackPanel Orientation="Vertical" 
+                    Margin="0,10,0,0" Grid.Row="3" Grid.Column="3" 
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="3">
+            <TextBlock x:Name="txtblkNetIncomeTotalExpense"
+                       Background="White" FontFamily="Times New Roman" FontSize="11"
+                       Foreground="Black"
+                       Height="60"
+                       Width="auto">
+                
+            </TextBlock>
+            <TextBlock x:Name="txtblkOneThird" 
+                       Background="White" FontFamily="Times New Roman" FontSize="11"
+                       Foreground="Black"
+                       Height="60"
+                       Width="auto">
+
+            </TextBlock>
+            <TextBlock x:Name="txtblk75Percent" 
+                       Background="White" FontFamily="Times New Roman" FontSize="11"
+                       Foreground="Black"
+                       Height="60"
+                       Width="auto">
+
+            </TextBlock>
+            <TextBlock x:Name="txtblkSaving" 
+                       Background="White" FontFamily="Times New Roman" FontSize="11"
+                       Foreground="Black"
+                       Height="60"
+                       Width="auto">
+
+            </TextBlock>
+        </StackPanel>
+
+        <!--Back button-->
+        <StackPanel Grid.Row="5" Grid.Column="3" Orientation="Horizontal" 
+                    Margin="100,18,0,20" Grid.ColumnSpan="2">
+
+            <Button x:Name="btnBackSummary"  Width="100" Height="30"
+                Content="Back " Foreground="#FFFBFBFB" FontFamily="Times New Roman" FontSize="16" Click="btnBackSummary_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
+            <!--Next button-->
+            <Button x:Name="btnCloseProg"  Width="100" Height="30" Margin="50,0,0,0"
+                Content="Close Program" Foreground="#FFFBFBFB" FontFamily="Times New Roman" FontSize="16" Click="btnCloseProg_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+        </StackPanel>
+        
+        
+
+    </Grid>
+</Window>

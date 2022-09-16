@@ -1,0 +1,168 @@
+﻿<Window x:Class="PersonalBudgetPlanner_WPF.Homeloan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonalBudgetPlanner_WPF"
+        mc:Ignorable="d"
+        Title="Homeloan" Height="422" Width="859">
+    <!--Bibliography and References:
+    [1] Youtube.com. 2022. [online] Available at: <https://www.youtube.com/watch?v=gSfMNjWNoX0&list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8> [Accessed 30 June 2022].
+    
+    [2] Youtube.com. 2022. [online] Available at: <https://www.youtube.com/watch?v=-zM486rVopk&list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8&index=2> [Accessed 30 June 2022].
+    -->
+    <!-- window properties-->
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF72C569" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <!-- Row definitions-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!-- col definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
+                   FontFamily="Times New Roman" FontSize="48"
+                   Margin="140,0,0,0" Foreground="White">
+            Home Loan Info Capture
+        </TextBlock>
+
+        <!-- property piurchase price stack-->
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,30,0,0">
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20">
+                Property Purchase Price:
+            </TextBlock>
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20" Margin="20,0,0,0">
+                R
+            </TextBlock>
+            <TextBox x:Name="txtbxPropertyPurchasePrice" Width="150" Margin="0,0,0,0" Height="24">
+
+            </TextBox>
+        </StackPanel>
+
+        <!-- deposit % Home loan stack-->
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="0,30,0,0">
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20">
+                Deposit:
+            </TextBlock>
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20" Margin="145,0,0,0">
+                %
+            </TextBlock>
+            <TextBox x:Name="txtbxDepositHL" Width="150" Margin="0,0,0,0" Height="24">
+
+            </TextBox>
+        </StackPanel>
+
+        <!-- interest rate % Home loan stack-->
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="0,30,0,0">
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20">
+                Interest Rate:
+            </TextBlock>
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20" Margin="105,0,0,0">
+                %
+            </TextBlock>
+            <TextBox x:Name="txtbxInterestHL" Width="150" Margin="0,0,0,0" Height="24">
+
+            </TextBox>
+        </StackPanel>
+
+        <!-- months to repay Home loan stack-->
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal"
+                    Margin="0,26,0,10">
+            <TextBlock Foreground="White" FontFamily="Times New Roman" FontSize="20" 
+                       Text="#Months to repay">
+
+
+
+            </TextBlock>
+
+            <TextBox x:Name="txtbxMonthsRepay" Width="150" Margin="88,0,0,0" Height="24">
+
+            </TextBox>
+        </StackPanel>
+
+        <TextBlock Text="(Between 240-360):" Grid.Row="6" Grid.Column="1" Foreground="White" FontFamily="Times New Roman" FontSize="20">
+            
+        </TextBlock>
+
+        <Button Content="Calculate" Grid.Row="7" Grid.Column="1" Height="30" Width="100"
+                Margin="-100,25,0,10" Name="btnCalcMonthlyHL" FontFamily="Times New Roman" FontSize="16" Foreground="White" Click="btnCalcMonthlyHL_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+
+        <!--Back button-->
+        <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal" 
+                    Margin="130,15,0,10" Grid.ColumnSpan="2">
+
+            <Button x:Name="btnBackHL"  Width="100" Height="30"
+                Content="Back " Foreground="#FFFBFBFB" FontFamily="Times New Roman" FontSize="16" Click="btnBackHL_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
+            <!--Next button-->
+            <Button x:Name="btnNextHL"  Width="100" Height="30" Margin="50,0,0,0"
+                Content="Next" Foreground="#FFFBFBFB" FontFamily="Times New Roman" FontSize="16" Click="btnNextHL_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+        </StackPanel>
+
+        <!--HL repayment per month heading-->
+        <TextBlock Text="MONTHLY HOME LOAN &#xA;      REPAYMENT:" 
+                   Grid.Row="2" Grid.Column="2" Foreground="White" 
+                   Grid.ColumnSpan="2"
+                   FontFamily="Times New Roman" FontSize="20" FontStyle="Italic"
+                   Margin="100,54,26,0" Grid.RowSpan="2">
+
+        </TextBlock>
+
+        <!--HL repayment per month txt block-->
+        <TextBlock x:Name="txtblkMonthlyHLRepaymenyt" Grid.Row="4" Grid.Column="2"
+                   Grid.ColumnSpan="2"
+                   Width="200" Height="30" Foreground="White" FontSize="20" FontFamily="Times New Roman">
+
+        </TextBlock>
+
+
+    </Grid>
+</Window>
